@@ -1,6 +1,6 @@
 // PRODUCTOS
 const productos = [
-{nombre:"Camiseta Colombia", precio:45, img:"img/Camiseta de seleccion.jpg", categoria:"ropa", rating:5},
+{nombre:"Camiseta Colombia", precio:45, img:"Camiseta de seleccion.jpg", categoria:"ropa", rating:5},
 {nombre:"Nike Air Force", precio:90, img:"img/zapatilla blancos.jpeg", categoria:"calzado", rating:4},
 {nombre:"sansung", precio:120, img:"img/sansung calaxy.jpeg", categoria:"electronica", rating:5},
 {nombre:"Mochila", precio:30, img:"img/maleta.jpeg", categoria:"accesorios", rating:4},
