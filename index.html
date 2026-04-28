@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashop - Tienda Online</title>
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <h1>Flashop</h1>
+    </div>
+
+    <nav class="nav">
+        <a href="#" onclick="mostrarTodos()">Inicio</a>
+        <a href="#categorias">Categorías</a>
+        <a href="#productos-section">Productos</a>
+    </nav>
+
+    <div class="search">
+        <input type="text" placeholder="Buscar productos...">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+
+    <div class="icons">
+        <i class="fa-solid fa-user" id="icon-user" onclick="abrirLogin()"></i>
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fa-solid fa-basket-shopping"></i>
+            <span id="contador">0</span>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <h2>Bienvenido a Flashop</h2>
+        <p>Tu tienda online de confianza</p>
+        <button onclick="scrollProductos()">Explorar productos</button>
+    </div>
+</section>
+
+<section id="categorias" class="categorias">
+    <h2>Categorías</h2>
+
+    <div class="grid-categorias">
+        <div class="categoria" onclick="filtrar('ropa')">Ropa</div>
+        <div class="categoria" onclick="filtrar('calzado')">Calzado</div>
+        <div class="categoria" onclick="filtrar('electronica')">Electrónica</div>
+        <div class="categoria" onclick="filtrar('accesorios')">Accesorios</div>
+    </div>
+</section>
+
+<main id="productos-section" class="productos-section">
+    <h2>Productos disponibles</h2>
+    <div class="products" id="productos"></div>
+</main>
+
+<!-- CARRITO -->
+<aside id="carrito" class="cart">
+    <div class="cart-header">
+        <h2>Carrito</h2>
+        <button onclick="toggleCart()">✖</button>
+    </div>
+
+    <div id="lista"></div>
+
+    <div class="cart-footer">
+        <p>Total: $<span id="total">0</span></p>
+        <button onclick="abrirPago()">Finalizar compra</button>
+        <button onclick="vaciarCarrito()">Vaciar carrito</button>
+    </div>
+</aside>
+
+<div id="overlay" class="cart-overlay" onclick="toggleCart()"></div>
+
+<!-- MODAL PAGO -->
+<div id="pago" class="modal hidden">
+    <div class="modal-content">
+        <h2>Datos de pago</h2>
+        <input type="text" placeholder="Nombre completo">
+        <input type="text" placeholder="Número de tarjeta">
+        <button onclick="confirmarPago()">Confirmar pago</button>
+    </div>
+</div>
+
+<!-- FACTURA -->
+<div id="factura" class="modal hidden">
+    <div class="modal-content">
+        <h2>Factura 🧾</h2>
+        <div id="factura-detalle"></div>
+        <p><strong>Total: $<span id="factura-total"></span></strong></p>
+        <button onclick="cerrarFactura()">Cerrar</button>
+    </div>
+</div>
+
+<!-- LOGIN -->
+<div id="login" class="modal hidden" onclick="cerrarLogin()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <h2>Iniciar Sesión</h2>
+        <input type="text" id="user" placeholder="Usuario">
+        <input type="password" id="pass" placeholder="Contraseña">
+
+        <button onclick="login()">Ingresar</button>
+        <button onclick="cerrarLogin()">Cancelar</button>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>&copy; 2026 Flashop</p>
+</footer>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
