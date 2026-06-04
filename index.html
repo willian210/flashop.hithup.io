@@ -3,15 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Flashop - Tienda Online</title>
 
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header class="header">
+
     <div class="logo">
         <i class="fa-solid fa-bag-shopping"></i>
         <h1>Flashop</h1>
@@ -23,100 +29,329 @@
         <a href="#productos-section">Productos</a>
     </nav>
 
+    <!-- BUSCADOR -->
     <div class="search">
         <input type="text" placeholder="Buscar productos...">
         <i class="fa-solid fa-magnifying-glass"></i>
     </div>
+<!-- ICONOS -->
+<div class="icons">
 
-    <div class="icons">
-        <i class="fa-solid fa-user" id="icon-user" onclick="abrirLogin()"></i>
-        <div class="cart-icon" onclick="toggleCart()">
-            <i class="fa-solid fa-basket-shopping"></i>
-            <span id="contador">0</span>
-        </div>
+    <!-- BOTON DARK MODE -->
+    <button class="dark-btn"
+    onclick="toggleDarkMode()">
+        🌙
+    </button>
+
+    <!-- LOGIN -->
+    <i class="fa-solid fa-user"
+    id="icon-user"
+    onclick="abrirLogin()"></i>
+
+    <!-- CARRITO -->
+    <div class="cart-icon"
+    onclick="toggleCart()">
+
+        <i class="fa-solid fa-basket-shopping"></i>
+
+        <span id="contador">0</span>
+
     </div>
+
+</div>
+
 </header>
 
+<!-- HERO / CARRUSEL -->
 <section class="hero">
-    <div class="hero-text">
-        <h2>Bienvenido a Flashop</h2>
-        <p>Tu tienda online de confianza</p>
-        <button onclick="scrollProductos()">Explorar productos</button>
-    </div>
-</section>
 
+    <div class="hero-slide active"
+    style="background-image:url('img/banner1.jpg')">
+
+        <div class="hero-content">
+
+            <h2>Bienvenido a Flashop</h2>
+
+            <p>Las mejores ofertas online</p>
+
+            <button onclick="scrollProductos()">
+                Comprar ahora
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="hero-slide"
+    style="background-image:url('img/banner2.jpg')">
+
+        <div class="hero-content">
+
+            <h2>Moda y Tecnología</h2>
+
+            <p>Productos increíbles para ti</p>
+
+            <button onclick="scrollProductos()">
+                Ver productos
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="hero-slide"
+    style="background-image:url('img/banner3.jpg')">
+
+        <div class="hero-content">
+
+            <h2>Envíos rápidos</h2>
+
+            <p>Compra fácil y segura</p>
+
+            <button onclick="scrollProductos()">
+                Explorar
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- CATEGORÍAS -->
 <section id="categorias" class="categorias">
+
     <h2>Categorías</h2>
 
     <div class="grid-categorias">
-        <div class="categoria" onclick="filtrar('ropa')">Ropa</div>
-        <div class="categoria" onclick="filtrar('calzado')">Calzado</div>
-        <div class="categoria" onclick="filtrar('electronica')">Electrónica</div>
-        <div class="categoria" onclick="filtrar('accesorios')">Accesorios</div>
+
+        <div class="categoria" onclick="filtrar('ropa')">
+            👕 Ropa
+        </div>
+
+        <div class="categoria" onclick="filtrar('calzado')">
+            👟 Calzado
+        </div>
+
+        <div class="categoria" onclick="filtrar('electronica')">
+            📱 Electrónica
+        </div>
+
+        <div class="categoria" onclick="filtrar('accesorios')">
+            🎒 Accesorios
+        </div>
+
     </div>
+
 </section>
 
+<!-- PRODUCTOS -->
 <main id="productos-section" class="productos-section">
+
     <h2>Productos disponibles</h2>
+
     <div class="products" id="productos"></div>
+
 </main>
 
 <!-- CARRITO -->
 <aside id="carrito" class="cart">
+
     <div class="cart-header">
-        <h2>Carrito</h2>
-        <button onclick="toggleCart()">✖</button>
+
+        <h2>Tu carrito 🛒</h2>
+
+        <button onclick="toggleCart()">
+            ✖
+        </button>
+
     </div>
 
+    <!-- LISTA -->
     <div id="lista"></div>
 
+    <!-- FOOTER -->
     <div class="cart-footer">
-        <p>Total: $<span id="total">0</span></p>
-        <button onclick="abrirPago()">Finalizar compra</button>
-        <button onclick="vaciarCarrito()">Vaciar carrito</button>
+
+        <h3>
+            Total: $<span id="total">0</span>
+        </h3>
+
+        <button class="btn-buy"
+        onclick="abrirPago()">
+
+            Finalizar compra
+
+        </button>
+
+        <button class="btn-clear"
+        onclick="vaciarCarrito()">
+
+            Vaciar carrito
+
+        </button>
+
     </div>
+
 </aside>
 
-<div id="overlay" class="cart-overlay" onclick="toggleCart()"></div>
+<!-- OVERLAY -->
+<div id="overlay"
+class="cart-overlay"
+onclick="toggleCart()"></div>
 
 <!-- MODAL PAGO -->
 <div id="pago" class="modal hidden">
+
     <div class="modal-content">
-        <h2>Datos de pago</h2>
-        <input type="text" placeholder="Nombre completo">
-        <input type="text" placeholder="Número de tarjeta">
-        <button onclick="confirmarPago()">Confirmar pago</button>
+
+        <h2>Datos de pago 💳</h2>
+
+        <input type="text"
+        placeholder="Nombre completo">
+
+        <input type="text"
+        placeholder="Número de tarjeta">
+
+        <button onclick="confirmarPago()">
+            Confirmar pago
+        </button>
+
     </div>
+
 </div>
 
 <!-- FACTURA -->
 <div id="factura" class="modal hidden">
+
     <div class="modal-content">
-        <h2>Factura 🧾</h2>
+
+        <h2>Factura Flashop 🧾</h2>
+
         <div id="factura-detalle"></div>
-        <p><strong>Total: $<span id="factura-total"></span></strong></p>
-        <button onclick="cerrarFactura()">Cerrar</button>
+
+        <p>
+            <strong>
+                Total: $<span id="factura-total"></span>
+            </strong>
+        </p>
+
+        <button onclick="cerrarFactura()">
+            Cerrar
+        </button>
+
     </div>
+
 </div>
 
 <!-- LOGIN -->
 <div id="login" class="modal hidden" onclick="cerrarLogin()">
-    <div class="modal-content" onclick="event.stopPropagation()">
-        <h2>Iniciar Sesión</h2>
-        <input type="text" id="user" placeholder="Usuario">
-        <input type="password" id="pass" placeholder="Contraseña">
 
-        <button onclick="login()">Ingresar</button>
-        <button onclick="cerrarLogin()">Cancelar</button>
+    <div class="modal-content" onclick="event.stopPropagation()">
+
+        <!-- LOGIN -->
+        <div id="loginForm">
+
+            <h2>Iniciar Sesión</h2>
+
+            <input
+            type="text"
+            id="loginUser"
+            placeholder="Usuario">
+
+            <input
+            type="password"
+            id="loginPass"
+            placeholder="Contraseña">
+
+            <button onclick="login()">
+                Ingresar
+            </button>
+
+            <p>¿No tienes cuenta?</p>
+
+            <button onclick="mostrarRegistro()">
+                Crear cuenta
+            </button>
+
+        </div>
+
+        <!-- REGISTRO -->
+        <div id="registerForm" class="hidden">
+
+            <h2>Crear Cuenta</h2>
+
+            <input
+            type="text"
+            id="registerUser"
+            placeholder="Nuevo usuario">
+
+            <input
+            type="password"
+            id="registerPass"
+            placeholder="Nueva contraseña">
+
+            <button onclick="crearCuenta()">
+                Crear cuenta
+            </button>
+
+            <button onclick="mostrarLogin()">
+                Ya tengo cuenta
+            </button>
+
+        </div>
+
+        <button onclick="cerrarLogin()">
+            Cancelar
+        </button>
+
     </div>
+
 </div>
 
-<footer class="footer">
-    <p>&copy; 2026 Flashop</p>
-</footer>
+<!-- REGISTRO -->
+<div id="registro"
+class="modal hidden"
+onclick="cerrarRegistro()">
 
+    <div class="modal-content"
+    onclick="event.stopPropagation()">
+
+        <h2>Crear Cuenta</h2>
+
+        <input type="text"
+        id="new-user"
+        placeholder="Nuevo usuario">
+
+        <input type="password"
+        id="new-pass"
+        placeholder="Nueva contraseña">
+
+        <button onclick="crearCuenta()">
+            Crear cuenta
+        </button>
+
+        <button onclick="cerrarRegistro()">
+            Cancelar
+        </button>
+
+    </div>
+
+</div>
+
+<!-- TOAST -->
 <div id="toast" class="toast"></div>
 
+<!-- FOOTER -->
+<footer class="footer">
+
+    <p>
+        © 2026 Flashop - Proyecto académico SENA
+    </p>
+
+</footer>
+
+<!-- SCRIPT -->
 <script src="script.js"></script>
+
 </body>
 </html>
